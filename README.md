@@ -139,6 +139,107 @@ trạng thái : Đã hoạt động
 
  # DỰNG HỆ THỐNG DOCKER BẰNG FILE docker-compose.yml
 
+ cd /mnt/d
+
+mkdir baitap3_web
+
+cd baitap3_web
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e9bed7f0-ad81-4d02-a29a-5351104c5cb7" />
+
+ Tạo file docker-compose.yml
+ 
+ lệnh : nano docker-compose.yml
+ 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/89a8bbbc-575c-4953-8d55-d39031fe118b" />
+
+Sao chép toàn bộ nội dung bên dưới
+```version: "3.8"
+
+services:
+  mariadb:
+    image: mariadb:10.6
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: webdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - mariadb
+
+  nodered:
+    image: nodered/node-red
+    container_name: nodered
+    restart: always
+    ports:
+      - "1880:1880"
+    volumes:
+      - nodered_data:/data
+
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    restart: always
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - influxdb
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./frontend:/usr/share/nginx/html
+
+volumes:
+  mariadb_data:
+  influxdb_data:
+  nodered_data:
+```
+Nhấn Ctrl + O → Enter để lưu
+
+Nhấn Ctrl + X để thoát khỏi nano
+
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/20947ba6-1c02-4ebf-b355-7a12c77a42ef" />
+
+3.3 Tạo file nginx.conf
+
+Trong thư mục /mnt/d/baitap3_web, gõ lệnh: nano nginx.conf
+
+
 
 
 
