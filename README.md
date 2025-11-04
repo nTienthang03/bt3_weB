@@ -274,6 +274,18 @@ Làm tương tự để ra được các file
 <img  width="1817" height="488" alt="image" src="https://github.com/user-attachments/assets/64b47c37-576d-498f-b094-163a317c46f0" />
 
 
+Sau đó kiểm tra các đường dẫn 
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3f597097-4363-4026-81c7-35b307521279" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/be69bf2f-2409-45af-b0d2-954727eddad3" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a58f5803-4008-4e6c-8180-db8a0a3842b8" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1c623dce-f481-44c3-9542-f0a55f5ce8db" />
+
+
+
 
 
 
