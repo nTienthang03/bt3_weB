@@ -284,7 +284,133 @@ Sau đó kiểm tra các đường dẫn
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1c623dce-f481-44c3-9542-f0a55f5ce8db" />
 
+# 4. LẬP TRÌNH WEB FRONTEND + BACKEND (WEB IoT)
 
+# Mục tiêu:
+
+Tạo một web IoT giám sát nhiệt độ – độ ẩm realtime:
+
+Node-RED sinh dữ liệu cảm biến (giả lập).
+
+Node-RED lưu vào InfluxDB để hiển thị biểu đồ.
+
+Frontend index.html gọi API từ Node-RED, hiển thị thông tin hiện tại.
+
+Grafana vẽ biểu đồ trực quan từ dữ liệu InfluxDB.
+
+
+# 4.1 Cấu hình Node-RED (Backend API)
+Mở Node-RED
+Truy cập: http://localhost:1880
+
+<img width="1919" height="1078" alt="image" src="https://github.com/user-attachments/assets/2b72461c-94b9-4758-a660-d8471a7ef7b2" />
+
+Cài thêm các node cần thiết
+Vào menu → Manage palette → Install
+
+Tìm và cài 3 gói:
+
+node-red-contrib-influxdb
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f9c88dd4-6cad-4fbc-a137-696cd419b3b0" />
+
+node-red-dashboard
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b7237821-3697-44d3-9e95-6395654ad4d4" />
+
+node-red-node-random
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/990bce56-55ed-4908-aa75-5789989321ef" />
+
+# Tạo Flow mới
+
+Chọn tab mới và tạo các node như sau:
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/53d7ff08-9fbb-48b5-a221-64f0518bc7a9" />
+
+# Inject – “Cập nhật cảm biến (1s)”
+
+Kiểu: inject
+
+Tên: Cập nhật cảm biến (1s)
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4d59a958-1b57-43e4-92b7-17ec12b2c431" />
+
+Repeat: Every 1 second
+
+Output: timestamp
+
+Chức năng: Kích hoạt tự động mỗi giây để sinh dữ liệu cảm biến giả.
+
+
+b. Function – “Sinh dữ liệu giả (sensors)”
+
+Kiểu: function
+
+Tên: Sinh dữ liệu giả (sensors)
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a59908df-8828-4191-9503-13096b282834" />
+
+
+c. InfluxDB Out – “Ghi dữ liệu cảm biến”
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d6219aec-c893-41f2-9a57-c1b9be769412" />
+
+Kiểu: influxdb out
+
+Tên: Ghi dữ liệu cảm biến
+
+Server: [v1.x] influxdb
+
+Database: iot_data
+
+Measurement: sensors
+
+Chức năng: Ghi dữ liệu sensor sinh ra vào database iot_data
+
+d. HTTP In – “API - GET /api/sensor”
+
+Kiểu: http in
+
+Tên: API - GET /api/sensor
+
+Method: GET
+
+URL: /api/sensor
+
+Chức năng: Tạo endpoint API để client (frontend) truy vấn dữ liệu cảm biến.
+
+<img width="1897" height="1079" alt="image" src="https://github.com/user-attachments/assets/00ac2ccb-d60b-4882-bae4-81c2cd37b523" />
+
+e. Function – “Tạo query”
+
+Kiểu: function
+
+Tên: Tạo query
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/108ea0c5-249d-40a5-a93b-81ea246b6182" />
+
+
+f. InfluxDB In – “Đọc Influx (v1.x)”
+
+Kiểu: influxdb in
+
+Server: [v1.x] influxdb
+
+Database: iot_data
+
+Query: lấy từ msg.query
+
+Chức năng: Truy vấn dữ liệu cảm biến từ InfluxDB theo câu query đã tạo.
+
+g. Function – “Trả JSON + CORS”
+
+Kiểu: function
+
+Tên: Trả JSON + CORS
+
+Code:
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8e6bc0f3-afda-4188-9aef-e7dace0d4ea7" />
 
 
 
