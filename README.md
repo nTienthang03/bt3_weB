@@ -408,10 +408,64 @@ Kiểu: function
 
 Tên: Trả JSON + CORS
 
-Code:
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8e6bc0f3-afda-4188-9aef-e7dace0d4ea7" />
 
 
+# Kết quả sau khi chạy 
+
+<img width="1218" height="654" alt="image" src="https://github.com/user-attachments/assets/370af10f-ca2f-444d-8cc1-57e6cc9de3ab" />
+
+
+### 4.2 Kết nối Grafana và hiển thị biểu đồ
+a. Đăng nhập Grafana
+
+Truy cập: http://localhost:3000
+• Username: admin
+• Password: admin (sau đó nhập mật khẩu mới)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/179b96e2-1727-4743-9d75-ab833e832ce6" />
+
+
+
+b. Thêm nguồn dữ liệu (Data Source)
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/95e410dd-81bd-4f63-8f62-6edc75eafa84" />
+
+Ở menu bên trái → Connections → Data sources
+Chọn InfluxDB
+Cấu hình như sau:
+URL: http://influxdb:8086
+Database: iot_data
+Query Language: InfluxQL
+User: root
+Password: 12456
+Nhấn Save & Test
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4d7c6357-2b6b-44b1-abe1-c418524f1289" />
+
+c. Tạo Dashboard hiển thị dữ liệu
+
+Vào Dashboards → New → New dashboard
+Add new panel
+Trong phần Query (InfluxQL), nhập lệnh:
+
+```
+SELECT mean("temperature") FROM "sensors" WHERE $timeFilter GROUP BY time(5s) fill(null)
+
+SELECT mean("humidity") FROM "sensors" WHERE $timeFilter GROUP BY time(5s) fill(null)
+```
+kết quả 
+# 4.3 Tạo Frontend (index.html
+a. Trong Ubuntu (WSL), vào thư mục dự án trên ổ D :
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/de076421-498e-4a83-ab73-42ecc99d42d1" />
+
+b. Tạo file app.js để gọi API Node-RED
+
+Vẫn ở thư mục frontend: nano app.js
+
+ <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1a4d7bcb-ceec-41af-802c-599cb9304aca" />
+ 
+ d. Mở web frontend 
 
 
