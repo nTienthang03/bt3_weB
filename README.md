@@ -33,38 +33,10 @@ Sử dụng **1 file `docker-compose.yml`** để cài đặt các Docker contai
 
 ## 💻 LẬP TRÌNH WEB FRONTEND + BACKEND
 
-Sinh viên chọn **1 trong 2 loại web** sau:
+EM chọn * loại web** sau:
 
 ---
 
-### 🔹 4.1. WEB THƯƠNG MẠI ĐIỆN TỬ
-
-- Web dạng **Single Page Application (SPA)**  
-  → chỉ gồm **1 file `index.html`**, toàn bộ giao diện do **JavaScript sinh động**.  
-- **Tính năng login:**  
-  - Lưu phiên đăng nhập vào **cookie** và **session**.  
-  - Thông tin login lưu trong **MariaDB**, được quản trị bằng **phpMyAdmin**.  
-  - **Mã hoá dữ liệu login** khi gửi.  
-  - Chỉ cần login **1 lần**, đăng xuất mới phải login lại.  
-- **Tính năng trang chủ:** liệt kê **các sản phẩm bán chạy**.  
-- **Tính năng nhóm sản phẩm:** liệt kê **các nhóm sản phẩm**.  
-- **Tính năng sản phẩm theo nhóm.**  
-- **Tính năng tìm kiếm sản phẩm.**  
-- **Giỏ hàng:**  
-  - Thêm sản phẩm vào giỏ.  
-  - Thay đổi số lượng.  
-  - Cập nhật tổng tiền.  
-- **Đặt hàng:** nhập thông tin giao hàng → tạo **đơn hàng**.  
-- **Tính năng Admin:**  
-  - Thống kê số lượng đơn hàng.  
-  - **Call** xác nhận & cập nhật trạng thái đơn hàng.  
-  - Gửi thông tin cho bộ phận đóng gói, bưu điện.  
-  - Cập nhật mã COD, tình trạng giao hàng, huỷ hàng,...  
-- **Biểu đồ thống kê:**  
-  - Thống kê **số lượng mặt hàng bán được theo ngày** (sử dụng **Grafana**).  
-- **Backend:** sử dụng **Node-RED** xử lý request từ **JavaScript**, phản hồi về **JSON**.
-
----
 
 ### 🔹 4.2. WEB IOT: GIÁM SÁT DỮ LIỆU IOT
 
