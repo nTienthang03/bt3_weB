@@ -465,5 +465,11 @@ Vẫn ở thư mục frontend: nano app.js
  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1a4d7bcb-ceec-41af-802c-599cb9304aca" />
  
  d. Mở web frontend 
+ # 4.4 Kết quả ( thực hiện liên tục để đạt được kết quả từ các web và cài đặt như ảnh 
+ 
+<img width="1172" height="507" alt="image" src="https://github.com/user-attachments/assets/a97fea1a-2b93-47aa-969a-ea2d49151d01" />
+
+ 
+<img width="1412" height="507" alt="image" src="https://github.com/user-attachments/assets/4ae13f3d-d884-493e-8476-c1062ccdefb6" />
 
 
