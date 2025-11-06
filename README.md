@@ -280,8 +280,6 @@ Sau đó kiểm tra các đường dẫn
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/be69bf2f-2409-45af-b0d2-954727eddad3" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a58f5803-4008-4e6c-8180-db8a0a3842b8" />
-
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1c623dce-f481-44c3-9542-f0a55f5ce8db" />
 
 # 4. LẬP TRÌNH WEB FRONTEND + BACKEND (WEB IoT)
