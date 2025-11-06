@@ -440,36 +440,74 @@ Password: 12456
 Nhấn Save & Test
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4d7c6357-2b6b-44b1-abe1-c418524f1289" />
-
-c. Tạo Dashboard hiển thị dữ liệu
-
-Vào Dashboards → New → New dashboard
-Add new panel
-Trong phần Query (InfluxQL), nhập lệnh:
-
-```
-SELECT mean("temperature") FROM "sensors" WHERE $timeFilter GROUP BY time(5s) fill(null)
-
-SELECT mean("humidity") FROM "sensors" WHERE $timeFilter GROUP BY time(5s) fill(null)
-```
 kết quả 
-# 4.3 Tạo Frontend (index.html
-a. Trong Ubuntu (WSL), vào thư mục dự án trên ổ D :
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/de076421-498e-4a83-ab73-42ecc99d42d1" />
-
-b. Tạo file app.js để gọi API Node-RED
-
-Vẫn ở thư mục frontend: nano app.js
-
- <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1a4d7bcb-ceec-41af-802c-599cb9304aca" />
- 
- d. Mở web frontend 
- # 4.4 Kết quả ( thực hiện liên tục để đạt được kết quả từ các web và cài đặt như ảnh 
- 
 <img width="1172" height="507" alt="image" src="https://github.com/user-attachments/assets/a97fea1a-2b93-47aa-969a-ea2d49151d01" />
 
  
 <img width="1412" height="507" alt="image" src="https://github.com/user-attachments/assets/4ae13f3d-d884-493e-8476-c1062ccdefb6" />
+
+
+# 4.3 Tạo Frontend (index.html)
+
+<img width="1415" height="573" alt="image" src="https://github.com/user-attachments/assets/5e5ca7df-70ac-42d8-800c-025ab4b7ec76" />
+
+
+
+ 
+ # 4.4 Kết quả ( )
+ lưu ý : +thực hiện liên tục đễ fixx hết lỗi các bước hướng dẫn trên bằng CHAT GPT và GROCK AI để được kết quả như ảnh ) 
+ 
+
+<img width="1624" height="1031" alt="image" src="https://github.com/user-attachments/assets/2d00294b-1ca9-4c28-9388-1295ec775730" />
+
+## 💡 KIẾN THỨC VÀ KỸ NĂNG HỌC ĐƯỢC
+
+### 1️⃣ **Hiểu và triển khai môi trường phát triển trên nền Linux**
+- Biết cách **cài đặt và kích hoạt WSL2** trên Windows.  
+- Biết cách **cài Ubuntu và Docker Desktop**, đồng thời chạy lệnh kiểm tra container.  
+- Nắm rõ cách quản lý hệ thống qua **terminal Linux**, bao gồm khởi động, dừng, và kiểm tra trạng thái dịch vụ.
+
+### 2️⃣ **Sử dụng Docker và Docker Compose**
+- Học được cách tạo file `docker-compose.yml` để **quản lý nhiều container đồng thời**.  
+- Hiểu rõ vai trò của từng container:  
+  - **MariaDB**: Lưu trữ dữ liệu người dùng, sản phẩm hoặc cảm biến.  
+  - **phpMyAdmin**: Quản trị cơ sở dữ liệu qua giao diện web.  
+  - **Node-RED**: Xây dựng luồng xử lý backend và API JSON.  
+  - **InfluxDB & Grafana**: Lưu trữ và hiển thị dữ liệu dạng thời gian thực.  
+  - **Nginx**: Làm web server và reverse proxy cho toàn hệ thống.
+
+### 3️⃣ **Triển khai ứng dụng web SPA**
+- Biết cách xây dựng **index.html duy nhất**, kết hợp **JavaScript, HTML, CSS** để sinh giao diện động.  
+- Sử dụng **Fetch API hoặc AJAX** để gọi dữ liệu JSON từ Node-RED.  
+- Hiểu khái niệm **cookie, session** và cách lưu phiên đăng nhập của người dùng.  
+- Biết cách **tạo form đăng nhập, tìm kiếm, hiển thị sản phẩm hoặc dữ liệu cảm biến** theo thời gian thực.
+
+### 4️⃣ **Cấu hình Nginx làm Web Server**
+- Học được cách cấu hình **domain tùy chỉnh (http://nguyentienthang.com)**.  
+- Biết cấu hình **reverse proxy** để ánh xạ các dịch vụ khác như Node-RED (port 1880) và Grafana (port 3000) về cổng 80.  
+- Hiểu quy trình **chuyển hướng HTTP → HTTPS** khi triển khai thật.
+
+### 5️⃣ **Hiểu mối liên hệ giữa Frontend – Backend – Database**
+- Nắm được mô hình **client – server** trong ứng dụng web.  
+- Biết cách thiết kế API và gọi dữ liệu từ frontend bằng JSON.  
+- Thực hành **tạo – đọc – ghi – sửa – xóa (CRUD)** dữ liệu qua Node-RED.
+
+### 6️⃣ **Kỹ năng tổng hợp và báo cáo**
+- Biết cách **tổ chức mã nguồn**, lưu trên **GitHub** và viết **README.md** rõ ràng.  
+- Rèn luyện kỹ năng **mô tả quy trình triển khai** và **đưa minh chứng bằng hình ảnh**.  
+- Học được cách viết báo cáo kỹ thuật chuyên nghiệp và có tính hệ thống.
+
+---
+
+
+- Cách triển khai hệ thống web hiện đại theo mô hình container hóa.  
+- Tư duy kết nối giữa các dịch vụ backend và frontend trong một hệ thống thực tế.  
+- Cách sử dụng các công cụ DevOps cơ bản như Docker, Nginx và Grafana.  
+
+Đây là một bài tập giúp tôi rèn luyện **tư duy triển khai hệ thống hoàn chỉnh**, thay vì chỉ lập trình đơn lẻ.  
+Tôi nhận thấy việc hiểu và làm chủ môi trường triển khai quan trọng không kém so với viết mã nguồn, vì nó quyết định khả năng **chạy được – chạy ổn định – và mở rộng hệ thống** sau này.
+
+
 
 
